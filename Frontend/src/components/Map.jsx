@@ -21,16 +21,16 @@ export function Map({ busID }) {
   });
 
   useEffect(() => {
-    const ws = new WebSocket('ws://localhost:3000');
+    const ws = new WebSocket('wss://bus-project.onrender.com');
 
     ws.onmessage = async (event) => {
       const data = event.data instanceof Blob ? await event.data.text() : event.data;
       const finalData = JSON.parse(data);
+      
 
       if (finalData.busID === busID) {
         const { latitude, longitude } = finalData;
         if (latitude && longitude) {
-          console.log(latitude, longitude);
           setMarkerPosition({
             lat: latitude,
             lng: longitude,
@@ -64,7 +64,6 @@ export function Map({ busID }) {
           </GoogleMap>
         </LoadScript>
       </div>
-      {busID}
     </div>
   );
 }

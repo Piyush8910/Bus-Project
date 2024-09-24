@@ -5,7 +5,7 @@ export function WebSocketComponent({busID}) {
   const [long, setLong] = useState(null);
 
   useEffect(() => {
-    const ws = new WebSocket('ws://localhost:3000');
+    const ws = new WebSocket('wss://bus-project.onrender.com');
 
     const sendPosition = () => {
       navigator.geolocation.getCurrentPosition((position) => {
