@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
 import logo from '../images/LNMIIT.png';
-import bus from '../images/bus.png'
 
 const containerStyle = {
   width: '100%',
